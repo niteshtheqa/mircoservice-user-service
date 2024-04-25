@@ -1,0 +1,10 @@
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/services/UserService.java
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/entities/Rating.java
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/exceptions/ResourceNotFoundException.java
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/UserServiceApplication.java
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/payload/ApiResponse.java
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/entities/User.java
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/controllers/UserController.java
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/repositories/UserRepository.java
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/exceptions/GlobalExceptionHandler.java
+/Users/niteshwayafalkar/Desktop/Coding/Microservices/UserService/src/main/java/com/devops/user/service/services/Impl/UserServiceImpl.java
