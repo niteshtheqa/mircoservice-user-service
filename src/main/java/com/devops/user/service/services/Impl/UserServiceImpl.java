@@ -17,6 +17,7 @@ import com.devops.user.service.entities.Hotel;
 import com.devops.user.service.entities.Rating;
 import com.devops.user.service.entities.User;
 import com.devops.user.service.exceptions.ResourceNotFoundException;
+import com.devops.user.service.external.services.HotelService;
 import com.devops.user.service.repositories.UserRepository;
 import com.devops.user.service.services.UserService;
 
@@ -28,6 +29,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RestTemplate restTemplate;
+
+
+    @Autowired
+    private HotelService hotelService;
 
     private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -64,15 +69,15 @@ public class UserServiceImpl implements UserService {
         List<Rating> ratingList = ratings.stream().map(rating -> {
 
             // http://localhost:8082/hotels/f408a300-19d9-4924-a8e4-ae2ff1e79fb7
-            ResponseEntity<Hotel> forEntity = restTemplate
-                    .getForEntity("http://HOTELSERVICE/hotels/" + rating.getHotelId(), Hotel.class);
+            //ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTELSERVICE/hotels/" + rating.getHotelId(), Hotel.class);
 
-            Hotel hotel = forEntity.getBody();
+            Hotel hotel = hotelService.getHotel(rating.getHotelId());
  
-            logger.info("Response status code: {}", forEntity.getStatusCode());
-            logger.info("Name: {}",forEntity.getBody().getName());
-            logger.info("Hotel Id: {}",forEntity.getBody().getHotelId());
-            logger.info("Location: {}",forEntity.getBody().getLocation());
+            // logger.info("Response status code: {}", forEntity.getStatusCode());
+            // logger.info("Name: {}",forEntity.getBody().getName());
+            // logger.info("Hotel Id: {}",forEntity.getBody().getHotelId());
+            // logger.info("Location: {}",forEntity.getBody().getLocation());
+            
   
 
 
