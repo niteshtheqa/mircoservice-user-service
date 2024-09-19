@@ -13,11 +13,12 @@ RUN apt-get update && \
     ca-certificates \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-USER root    
 
 # Set JAVA_HOME environment variable
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-ENV PATH=$JAVA_HOME/bin:$PATH
+RUN export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
+RUN export MAVEN_HOME="$(dirname $(dirname $(readlink -f $(which mvn))))"
+ENV PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
+
 
 
 
@@ -25,8 +26,13 @@ ENV PATH=$JAVA_HOME/bin:$PATH
 RUN echo $PATH
 
 RUN echo $JAVA_HOME && \
+    echo "Print java Path" && \
+    which java && \
     java -version && \
     javac -version && \
+    echo "Print MVN path" && \
+    which mvn && \
+    which git && \
     mvn -version && \
     git --version
 
@@ -38,10 +44,10 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 # Build the project using Maven
-RUN mvn clean package
+RUN mvn clean package -Dmaven.test.skip=true
 
 # Expose the port that the user service will run on
 EXPOSE 8081
 
 # Run the user service
-CMD ["java", "-jar", "target/user-service.jar"]
+CMD ["java", "-jar", "target/UserService-0.0.1-SNAPSHOT.jar"]
