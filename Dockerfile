@@ -50,4 +50,4 @@ RUN mvn clean package -Dmaven.test.skip=true
 EXPOSE 8081
 
 # Run the user service
-CMD ["java", "-jar", "target/user-service.jar"]
+CMD ["java", "-jar", "target/UserService-0.0.1-SNAPSHOT.jar"]
