@@ -12,7 +12,6 @@ RUN apt-get update && \
     git -y \
     ca-certificates \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-  
 
 # Set JAVA_HOME environment variable
 RUN export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"

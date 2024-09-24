@@ -7,7 +7,6 @@ eureka:
     service-url:
       defaultZone: http://192.168.49.2:31489/eureka 
 
-
 server:
   port: 8081
 
@@ -32,4 +31,7 @@ spring:
 
 
   application:
-    name: USER-SERVICE  
+    name: USER-SERVICE
+
+#  config:
+#    import: configserver:http://localhost:8888/
