@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: nitesh2611/user-service:08  # Replace with the correct image for user-service
+        image: nitesh2611/user-service:09  # Replace with the correct image for user-service
         resources:
           limits:
             cpu: 200m
